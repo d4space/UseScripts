@@ -1,0 +1,52 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
+# User specific aliases and functions
+
+
+# ROOT Env
+#export ROOTSYS=/opt/local/root-6.02.05
+#export ROOTSYS=/opt/local/root_v5_34_14
+#export ROOTSYS=/opt/local/root-v6_05_02
+#export ROOTSYS=/opt/local/root_v5_34_32
+#export PATH=$PATH:$ROOTSYS/bin
+#export LD_LIBRARY_PATH=$ROOTSYS/lib:$LD_LIBRARY_PATH
+#export DYLD_LIBRARY_PATH=$ROOTSYS/lib:$DYLD_LIBRARY_PATH
+#source /Applications/ROOT/root-6.08.00/bin/thisroot.sh
+
+export PATH=$PATH:/Users/salee/.local/bin
+#export PYTHONPATH=$ROOTSYS/lib
+#Prompt
+export PS1="<\w>"
+#alias
+alias rm='rm -i'
+alias ssh='ssh -Y'
+alias goT2='ssh -Y cms.knu.ac.kr'
+alias goCMS01='ssh -Y cms01.knu.ac.kr'
+alias goSangil='ssh -Y 155.230.23.120'
+alias goBatch='ssh -Y cms02.knu.ac.kr'
+alias goCMS03='ssh -Y cms03.knu.ac.kr' # for SL5
+alias gopcknu02='ssh -tY pcknu02.cern.ch "cd /terranova_0/W/CMSSW_5_2_6/src; tcsh" '
+alias got3='ssh -Y cms03.knu.ac.kr'
+alias goLxplus='ssh -Y lxplus.cern.ch'
+alias gocms1='ssh -Y cms1.snu.ac.kr'
+alias gocms2='ssh -Y cms2.snu.ac.kr'
+alias gotamsa1='ssh -Y tamsa1.snu.ac.kr'
+alias gotamsa2='ssh -Y tamsa2.snu.ac.kr'
+alias gocms101='ssh -Y cms101.snu.ac.kr'
+alias goui10='ssh -Y -p 4280 ui10.sdfarm.kr'
+alias goui20='ssh -Y -p 4280 ui20.sdfarm.kr'
+#alias xterm='/usr/bin/xterm -fa Luxi -fs 10 -fg ForestGreen -bg black -sl 1000 +sb'
+
+#Color
+export CLICOLOR=1
+#CVS######################
+export CVS_RSH=ssh
+export CVSROOT=:ext:salee@155.230.23.122:/cern/CVS
+#export CVSROOT=salee@cmscvs.cern.ch:/local/reps/CMSSW
+#export CVSROOT=salee@cmscvs.cern.ch:/cvs_server/repositories/CMSSW
+#export CVSROOT=:gserver:cmssw.cvs.cern.ch:/local/reps/CMSSW
