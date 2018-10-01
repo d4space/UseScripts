@@ -1,6 +1,6 @@
 # UseScripts
 
-to get note from svn, use make_paper.sh
+to get note from svn, use svn_init.sh
 
 
 
