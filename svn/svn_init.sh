@@ -13,7 +13,7 @@ svn update utils
 svn update -N notes
 #svn update -N papers
 #svn update notes/AN-16-182
-svn update notes/AN-16-172
+svn update notes/$myDir
 #svn update notes/HIG-15-003
 #svn update notes/HIG-14-032
 #svn update notes/AN-15-300
