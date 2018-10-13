@@ -10,7 +10,11 @@ Aftert modificaiton:
   
 svn ci -m "ahahahaha"
 
-svn update
+svn update [-r12345]
+
+To get the version information:
+
+svn log
 
 
 
