@@ -5,11 +5,11 @@
 
 # Before start
 
-klist : to see the valid kerberos credentials
+**klist** : to see the valid kerberos credentials
 
-condor\_q : to see the job status
+**condor\_q** : to see the job status
 
-If you fail to see the proper output of these command, use kinit to refresh tokens as necessary.
+If you fail to see the proper output of these command, use **kinit** to refresh tokens as necessary.
 
 The system will remove automatically the running jobs if they are in running state for more than the MaxRuntime or JobFlavour.
 
