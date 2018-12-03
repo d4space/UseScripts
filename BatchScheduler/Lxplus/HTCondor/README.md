@@ -5,7 +5,7 @@
 
 # Before start
 
-**klist** : to see the valid kerberos credentials
+**klist** : to see the valid kerberos credentials, you need to confirm **afs/cern.ch@CERN.CH** within your credentials to copy output to your available directory.
 
 **condor\_q** : to see the job status
 
@@ -66,4 +66,9 @@ queue
  $ condor_wait -status log/hello.70.log
  ```
 
+## Transferring Output Files
 
+ HTCondor can use AFS or EOS as a shared file system.
+ To transfer file, you need **X509_USER_PROXY**.
+ The machine which will execute the job, writes the output files in the shared file system in order to be transferred back to the submit machine.
+ Using the command **transfer\_output\_files** in the submit file, the files to transfer can be defined.
