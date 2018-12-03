@@ -1,0 +1,13 @@
+Host kistiUi10
+	HostName ui10.sdfarm.kr
+	Port 4280
+
+Host kistiUi20
+	HostName ui20.sdfarm.kr
+	Port 4280
+
+
+Host *
+	ServerAliveInterval 60
+	TCPKeepAlive=no
+	ServerAliveCountMax 240

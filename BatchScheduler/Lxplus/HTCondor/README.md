@@ -59,7 +59,7 @@ queue
  bejones CMD: hello.sh  10/3  14:08      _      _      1      _ 70.0
  ```
 
- Note the job id "70.0" showing the cluster id (70) and the process id (0). We only have one subjob in this submit file, so we only have job id 0.
+ Note the job id "70.0" showing the **cluster id (70)** and the **process id (0)**. We only have one subjob in this submit file, so we only have job id 0.
 
  Rather than monitoring the job using repeated invocations of condor\_q, you can use condor\_wait:
  ```
