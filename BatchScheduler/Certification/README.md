@@ -20,6 +20,6 @@ openssl pkcs12 -in mycert.p12 -nocerts -out userkey.pem
 chmod 400 usercert.pem
 chmod 400 userkey.pem
 voms-proxy-info; to check (timeleft) if you have a valid authentication, if not
-voms-proxy-init --rfc --voms cms
+voms-proxy-init --rfc --voms cms or voms-proxy-init --voms cms -valid 24:00 -> need to check if we could set time limit to 24 hrs
 ```
 
