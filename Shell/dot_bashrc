@@ -24,7 +24,24 @@ export PATH=$PATH:/Users/salee/.local/bin
 export PS1="<\w>"
 #alias
 alias rm='rm -i'
+
+alias scramDebug='scram b -j8 USER_CXXFLAGS="-DEDM_ML_LOGDEBUG"'
+
+lsxrootd() {
+  ls /xrootd/store/user/salee/$1
+}
+lsgridpacks() {
+  ls /cvmfs/cms.cern.ch/phys_generator/gridpacks/$1
+}
+export goWorkDir="${HOME}/Latino/SW8026p2F16/src/"
+export goBachDir="${HOME}/Latino/BatchJobs"
+
+
 alias ssh='ssh -Y'
+
+
+
+
 alias goT2='ssh -Y cms.knu.ac.kr'
 alias goCMS01='ssh -Y cms01.knu.ac.kr'
 alias goSangil='ssh -Y 155.230.23.120'

@@ -5,7 +5,7 @@
 
 # Before start
 
-**klist** : to see the valid kerberos credentials
+**klist** : to see the valid kerberos credentials, you need to confirm **afs/cern.ch@CERN.CH** within your credentials to copy output to your available directory.
 
 **condor\_q** : to see the job status
 
@@ -38,6 +38,17 @@ queue
  * error: where the STDERR of the command or script would be written to. Same rules apply as output.
  * log: This is the output of HTCondor's logs for your jobs, not any logging your job itself will perform. It will show the submission times, execution host and times, and on termination will show stats.
  * queue: This schedules the job. It becomes more important (along with the interpolation) when queue is used to schedule multiple jobs by taking an integer as a value.
+ * +JobFlavoour = "longlunch"
+
+ ```
+ espresso     = 20 minutes
+ microcentury = 1 hour
+ longlunch    = 2 hours
+ workday      = 8 hours
+ tomorrow     = 1 day
+ testmatch    = 3 days
+ nextweek     = 1 week
+ ```
 
 ## Submitting the job
 
@@ -66,4 +77,13 @@ queue
  $ condor_wait -status log/hello.70.log
  ```
 
+## Transferring Output Files
 
+ HTCondor can use AFS or EOS as a shared file system.
+ To transfer file, you need **X509_USER_PROXY**.
+ The machine which will execute the job, writes the output files in the shared file system in order to be transferred back to the submit machine.
+ Using the command **transfer\_output\_files** in the submit file, the files to transfer can be defined.
+
+
+## Do not use Proxy in /tmp/x509up\_u$(id -u)
+ Condor can not read this in lxplus, use full path of AFS
