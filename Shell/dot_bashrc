@@ -42,6 +42,7 @@ alias goui10='ssh -Y -p 4280 ui10.sdfarm.kr'
 alias goui20='ssh -Y kistiUi20'
 #alias goui20='ssh -Y -p 4280 ui20.sdfarm.kr'
 alias gomylinux='ssh -Y 147.46.56.45'
+alias golabmac='ssh -Y 147.47.242.69'
 #alias xterm='/usr/bin/xterm -fa Luxi -fs 10 -fg ForestGreen -bg black -sl 1000 +sb'
 
 #Color
