@@ -7,6 +7,12 @@
 Follow the workbook to get the certificate.
 Import the certificate in your browser into your computer .globus directory.
 
+ca.cern.ch to get the Grid User certificates
+Then, you push "Download certificates" at the broswer where you have made the certificate.
+Certification Help page: https://ca.cern.ch/ca/Help/
+Firefox usage in this page:
+
+
 # Setup the certificate
 
 ```
