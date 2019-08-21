@@ -6,8 +6,6 @@ Host kistiUi20
 	HostName ui20.sdfarm.kr
 	Port 4280
 
+Host *.snu.ac.kr
+        Port 1240
 
-Host *
-	ServerAliveInterval 60
-	TCPKeepAlive=no
-	ServerAliveCountMax 240
