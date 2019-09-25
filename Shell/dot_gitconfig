@@ -1,0 +1,16 @@
+[user]
+  github = d4space
+  email = d4space@gmail.com
+  name = SangEun Lee
+[color]
+  ui = auto
+[core]
+  ignorecase = false
+  editor = vim
+[alias]
+  co = checkout
+  cm = commit
+  b = branch
+  l = log --oneline --graph
+[push]
+  default = current
