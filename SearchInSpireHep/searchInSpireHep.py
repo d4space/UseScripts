@@ -290,7 +290,8 @@ if __name__ == "__main__":
         recid=item['recid']
         doi = GetDOI(item)
     
-        line=str(index+1)+'\t'+title+'\t'+journal+'\t'+issn+'\t'+volume+'\t'+page+'\t'+date+'\t'+str(nauthor)+'\t'+people_names+'\t'+people_kris+'\t'+str(npeople) + '\t' + doi
+        line=title+' '+journal+' '+volume+' '+page+' '+date
+        #line=str(index+1)+'\t'+title+'\t'+journal+'\t'+issn+'\t'+volume+'\t'+page+'\t'+date+'\t'+str(nauthor)+'\t'+people_names+'\t'+people_kris+'\t'+str(npeople) + '\t' + doi
         if options.DEBUG: print (line)
         outputfile.write(line+'\n')
         #outputfile.write((line+'\n').encode('utf-8'))
