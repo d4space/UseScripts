@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 import sys,os,optparse,re
 import requests
+#reload(sys)
+#sys.setdefaultencoding('utf8')
 import fitz
 
 def GetURL(query):
     query=query.replace(' ','+')
+    #  of: output format
     return 'https://inspirehep.net/search?of=recjson&p='+query
 
 def GetTitle(item):
@@ -241,7 +244,7 @@ if __name__ == "__main__":
     
     
     people={}
-    people={'이상은':{'affiliation':'Seoul Natl. U.','full_names':['Lee, Sangeun','Lee, S.','Lee, S'],'KRI':12345,'paper_names':['S. Lee']},
+    people={'SangEunLee':{'affiliation':'Seoul Natl. U.','full_names':['Lee, Sangeun','Lee, S.','Lee, S'],'KRI':12345,'paper_names':['S. Lee']},
           }
     
     if options.IsTest:
@@ -261,15 +264,24 @@ if __name__ == "__main__":
     os.system('mkdir -p tmp')
     
     summaries=[]
+    fromInspirehepSearch = GetURL(options.query)
+    # from https://inspirehep.net/info/hep/tools/inspire_api_author_citations.py
+    # https://inspirehep.net/info/hep/tools/index
+    # inspire API: https://inspirehep.net/info/hep/api
+    # help Central: http://inspirehep.net/help/
+    #          ot: output tag 001 control number in MARCXML response, rg: records per chunk, 25 is default
     request_for_num=requests.get(GetURL(options.query).replace("recjson","xm")+'&rg=1&ot=001')
+    #print request_for_num.text
+    searchResult= re.search(r"Search-Engine-Total-Number-Of-Results: ([0-9]+)",request_for_num.text).group(0)
+    #print searchResult
     nitem=int(re.search(r"Search-Engine-Total-Number-Of-Results: ([0-9]+)",request_for_num.text).group(1))
     print  ( "Total number of Items:",nitem )
-    
     print ( "Get Json from INSPIREHEP" )
     items=[]
     for ichunk in range(int(nitem/25)+1):
     #for ichunk in range(4,6):
         print ( str(ichunk*25)+'/'+str(nitem) )
+	#                                        jrec : jump to index
         items+=requests.get(GetURL(options.query+'&jrec='+str(25*ichunk+1))).json()
     print ( str(len(items))+'/'+str(nitem) )
     
@@ -291,32 +303,30 @@ if __name__ == "__main__":
         doi = GetDOI(item)
     
         line=title+' '+journal+' '+volume+' '+page+' '+date
+	
         #line=str(index+1)+'\t'+title+'\t'+journal+'\t'+issn+'\t'+volume+'\t'+page+'\t'+date+'\t'+str(nauthor)+'\t'+people_names+'\t'+people_kris+'\t'+str(npeople) + '\t' + doi
-        if options.DEBUG: print (line)
-        outputfile.write(line+'\n')
-        #outputfile.write((line+'\n').encode('utf-8'))
-        
-        #print (str(index+1)+' '+ str(recid)+' '+ GetDOI(item)+' '+title)
-     
-        #infoline="{:3.3} {:9.9} {:32.32} {:30.30}".format(str(index+1),str(recid),GetDOI(item),title)
-        #infoline="{:3.3} {:9.9} {:32.32} {:30.30}".format(str(index+1),str(recid),GetDOI(item),title.encode('utf-8'))
-        #summary=[infoline]+summary
-        #for l in summary: print (l)
-    
+        if options.DEBUG:
+	  print line.encode('utf-8')
+        outputfile.write((line+'\n').encode('utf-8'))
+ 
+        infoline="{:3.3} {:9.9} {:32.32} {:30.30}".format(str(index+1),str(recid),GetDOI(item),title.encode('utf-8'))
+        summary=[infoline]
+        for l in summary: print l
+
         ##Download paper
-        #pdfname='tmp/'+str(recid)+'.pdf'
-        #if not os.path.exists(pdfname):
-        #    SavePaper(item)
-        #
-        ##Make abstract pdf
-        #doc=fitz.open(pdfname)
-        #abspagenumber=0
-        #for pagenumber in range(len(doc)):
-        #    page=doc[pagenumber]
-        #    if page.searchFor("abstract") or page.searchFor("Abstract") or page.searchFor("ABSTRACT") or page.searchFor("A B S T R A C T"):
-        #        abspagenumber=pagenumber
-        #        break;
+        pdfname='tmp/'+str(recid)+'.pdf'
+        if not os.path.exists(pdfname):
+            SavePaper(item)
+        #Make abstract pdf
+        doc=fitz.open(pdfname)
+        abspagenumber=0
+        for pagenumber in range(len(doc)):
+            page=doc[pagenumber]
+            if page.searchFor("abstract") or page.searchFor("Abstract") or page.searchFor("ABSTRACT") or page.searchFor("A B S T R A C T"):
+                abspagenumber=pagenumber
+                break;
     
+    ''' 
         #doc.select(range(abspagenumber+1))
         #doc.save(options.output+'/'+str(index+1)+'-1.pdf')
         #doc.close();
@@ -384,4 +394,4 @@ if __name__ == "__main__":
     
     #print ("\n############ Summary ###########")
     #for l in summaries: print (l)
-
+    '''
