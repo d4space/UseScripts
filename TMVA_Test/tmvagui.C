@@ -1,3 +1,3 @@
 {
-  TMVA::TMVAGUI("OutPutData/out_train_2017_SovB.root");
+  TMVA::TMVAGUI("out_root_2017/out_train_2017.root");
 }
