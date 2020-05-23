@@ -1,3 +1,27 @@
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Resggf400_ggf5000vsVbf5000 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Bstggf400_ggf5000vsVbf5000 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Resggf400_ggf5000vsEW0p1 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Bstggf400_ggf5000vsEW0p1 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Resggf400_ggf4000vsVbf4000 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Bstggf400_ggf4000vsVbf4000 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Resggf400_ggf4000vsEW0p1 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Bstggf400_ggf4000vsEW0p1 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Resggf400_ggf3000vsVbf3000 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Bstggf400_ggf3000vsVbf3000 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Resggf400_ggf3000vsEW0p1 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Bstggf400_ggf3000vsEW0p1 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Resggf400_ggf2000vsVbf2000 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Bstggf400_ggf2000vsVbf2000 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Resggf400_ggf2000vsEW0p1 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Bstggf400_ggf2000vsEW0p1 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Bstggf400_ggf1500vsVbf1500 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Resggf400_ggf1500vsVbf1500 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Resggf400_ggf1500vsEW0p1 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Bstggf400_ggf1500vsEW0p1 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Bstggf400_ggf1000vsVbf1000 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Resggf400_ggf1000vsVbf1000 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Resggf400_ggf1000vsEW0p1 .
+#scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Bstggf400_ggf1000vsEW0p1 .
 #scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Resggf400_ggf800vsEW0p1 .
 #scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Resggf400_ggf800vsVbf800 .
 #scp -r kistiUi20:Latino/CMSSW10215pch2/src/SNuAnalytics/Configurations/HWWSemiLepHighMass/nAODv5v6_MVA/out_root_2017_Bstggf400_ggf800vsVbf800 .
@@ -15,7 +39,31 @@ echo $datevalue
 
 mv TMVAClassification TMVAClassification_$datevalue
 mkdir -p TMVAClassification/plots
-root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf800vsEW0p1/out_train_2017.root",50,0.01)'
+root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf5000vsVbf5000/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Bstggf400_ggf5000vsVbf5000/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf5000vsEW0p1/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Bstggf400_ggf5000vsEW0p1/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf4000vsVbf4000/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Bstggf400_ggf4000vsVbf4000/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf4000vsEW0p1/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Bstggf400_ggf4000vsEW0p1/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf3000vsVbf3000/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Bstggf400_ggf3000vsVbf3000/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf3000vsEW0p1/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Bstggf400_ggf3000vsEW0p1/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf2000vsVbf2000/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Bstggf400_ggf2000vsVbf2000/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf2000vsEW0p1/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Bstggf400_ggf2000vsEW0p1/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Bstggf400_ggf1500vsVbf1500/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf1500vsVbf1500/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf1500vsEW0p1/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Bstggf400_ggf1500vsEW0p1/out_train_2017.root",50,0.01)'
+##root -l 'mvaeffscxxMod.C("","out_root_2017_Bstggf400_ggf1000vsVbf1000/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf1000vsVbf1000/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf1000vsEW0p1/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Bstggf400_ggf1000vsEW0p1/out_train_2017.root",50,0.01)'
+#root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf800vsEW0p1/out_train_2017.root",50,0.01)'
 #root -l 'mvaeffscxxMod.C("","out_root_2017_Resggf400_ggf800vsVbf800/out_train_2017.root",50,0.01)'
 #root -l 'mvaeffscxxMod.C("","out_root_2017_Bstggf400_ggf800vsVbf800/out_train_2017.root",50,0.01)'
 #root -l 'mvaeffscxxMod.C("","out_root_2017_Bstggf400_ggf800vsEW0p1/out_train_2017.root",50,0.01)'
