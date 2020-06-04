@@ -10,3 +10,7 @@ if myidx not in [ 111, 222]:
 else:
     print 'myidx', myidx, 'is in 111, 222'
 
+
+if -1:
+    print 'inside if'
+
