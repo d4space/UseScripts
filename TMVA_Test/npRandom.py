@@ -9,4 +9,9 @@ for i in range(0,100):
 
 #                                     ensemble, raw, column
 myarray = numpy.random.randint(2, size=(2,3,4))
+#myarray2 = numpy.random.randint(size=(2,3)) error
+myarray2 = numpy.random.randint(2, size=(2,1))
 print myarray
+print "myarray2", myarray2
+
+
