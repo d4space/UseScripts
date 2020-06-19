@@ -4,6 +4,8 @@
 # curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 # sudo python get-pip.py
 # requests
-sudo pip3 install requests
+#sudo pip3 install requests
 #sudo easy_install -U requests
 #sudo pip install fitz
+#sudo pip3 install fitz
+sudo pip3 install PyMuPDF

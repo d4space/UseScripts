@@ -208,6 +208,9 @@ def FindPersonMatches(doc,person):
     matches=[]
     for paper_name in person['paper_names']:
         for i in range(len(doc)):
+            if options.DEBUG:
+                print('doc idx:'+str(i))
+                print(doc[i].searchFor(paper_name) )
             for inst in doc[i].searchFor(paper_name):
                 unique=True
                 for match in matches:
@@ -250,8 +253,6 @@ if __name__ == "__main__":
     if options.IsTest:
         options.query='find author u. yang and i. park and tc p and d >= 2019-07'
     
-    
-    print('hahahhahahahahah')
     if options.DEBUG:
         print ("Options")
         print (options)
@@ -285,7 +286,7 @@ if __name__ == "__main__":
         items+=requests.get(GetURL(options.query+'&jrec='+str(25*ichunk+1))).json()
     print ( str(len(items))+'/'+str(nitem) )
     
-    outputfile=open(options.output+'/out.txt','w')
+    outputfile=open(options.output+'/out.txt','w', encoding='utf8')
     for index,item in enumerate(items):
         summary=[]
     
@@ -293,7 +294,7 @@ if __name__ == "__main__":
         journal=GetJournal(item)
         issn=GetISSN(item)
         volume=GetVolume(item)
-        page=GetPage(item)
+        pp_page=GetPage(item)
         date=GetDate(item)
         nauthor=GetNumberOfAuthors(item)
         people_names=GetPeopleNames(item)
@@ -301,69 +302,83 @@ if __name__ == "__main__":
         npeople=GetNumberOfPeople(item)
         recid=item['recid']
         doi = GetDOI(item)
-    
-        line=title+' '+journal+' '+volume+' '+page+' '+date
-	
-        #line=str(index+1)+'\t'+title+'\t'+journal+'\t'+issn+'\t'+volume+'\t'+page+'\t'+date+'\t'+str(nauthor)+'\t'+people_names+'\t'+people_kris+'\t'+str(npeople) + '\t' + doi
-        if options.DEBUG:
-	  print line.encode('utf-8')
-        outputfile.write((line+'\n').encode('utf-8'))
  
-        infoline="{:3.3} {:9.9} {:32.32} {:30.30}".format(str(index+1),str(recid),GetDOI(item),title.encode('utf-8'))
+        infoline="{:3.3} {:9.9} {:32.32} {:30.30}".format(str(index+1),str(recid),GetDOI(item),title)
+        #infoline="{:3.3} {:9.9} {:32.32} {:30.30}".format(str(index+1),str(recid),GetDOI(item),title.encode('utf-8'))
         summary=[infoline]
-        for l in summary: print l
+        for l in summary: print (l)
 
         ##Download paper
         pdfname='tmp/'+str(recid)+'.pdf'
         if not os.path.exists(pdfname):
             SavePaper(item)
         #Make abstract pdf
+        # GetPeopl() : check affiliation and full name from "find" result of InspireHep
+        #for person in GetPeople(item).itervalues():
+        #                            for python3
+        abstractPrinted=False
+        for person in GetPeople(item).values():
+            if abstractPrinted: break
+            doc=fitz.open(pdfname)
+            abspagenumber=0
+            for pagenumber in range(len(doc)):
+                page=doc[pagenumber]
+                if page.searchFor("abstract") or page.searchFor("Abstract") or page.searchFor("ABSTRACT") or page.searchFor("A B S T R A C T"):
+                    abspagenumber=pagenumber
+                    break;
+    
+            doc.select(range(abspagenumber+1))
+            doc.save(options.output+'/'+str(index+1)+'-1.pdf')
+            doc.close();
+
+            #line=str(index+1)+'\t'+title+'\t'+journal+'\t'+issn+'\t'+volume+'\t'+pp_page+'\t'+date+'\t'+str(nauthor)+'\t'+people_names+'\t'+people_kris+'\t'+str(npeople) + '\t' + doi
+            line=title+' '+journal+' '+volume+' '+pp_page+' '+date
+            if options.DEBUG:
+                print(line.encode('utf-8'))
+	        #print(line.encode('utf-8'))
+            outputfile.write(line+'\n')
+            #outputfile.write((line+'\n').encode('utf-8'))
+
+            abstractPrinted = True
+        
+        #Make authors pdf
         doc=fitz.open(pdfname)
-        abspagenumber=0
+        start=0
         for pagenumber in range(len(doc)):
             page=doc[pagenumber]
-            if page.searchFor("abstract") or page.searchFor("Abstract") or page.searchFor("ABSTRACT") or page.searchFor("A B S T R A C T"):
-                abspagenumber=pagenumber
-                break;
-    
-    ''' 
-        #doc.select(range(abspagenumber+1))
-        #doc.save(options.output+'/'+str(index+1)+'-1.pdf')
-        #doc.close();
-        #
-        ##Make authors pdf
-        #doc=fitz.open(pdfname)
-        #start=0
-        #for pagenumber in range(len(doc)):
-        #    page=doc[pagenumber]
-        #    if page.searchFor("Tumasyan"):start=pagenumber
-        #if start>abspagenumber:
-        #    end=len(doc)-1
-        #else:
-        #    end=max(abspagenumber-1,0)
-        #doc.select(range(start,end+1))
+            if page.searchFor("Tumasyan"):start=pagenumber
+        if start>abspagenumber:
+            end=len(doc)-1
+        else:
+            end=max(abspagenumber-1,0)
+        doc.select(range(start,end+1))
      
-        #ambiguous=[]
-        #highlights=[]
+        ambiguous=[]
+        highlights=[]
+        # GetPeopl() : check affiliation and full name from "find" result of InspireHep
         #for person in GetPeople(item).itervalues():
-        ##step 1. simple search
-        #    matches=FindPersonMatches(doc,person)
-        #    if options.DEBUG: print person['full_names'][0], matches
-        #    if len(matches)==1:
-        #        doc[matches[0][0]].addHighlightAnnot(matches[0][1])
-        #        highlights+=[matches[0]]
+        #                            for python3
+        for person in GetPeople(item).values():
+            print(person)
+        #step 1. simple search : passing author when more than one match in a page
+            matches=FindPersonMatches(doc,person)
+            #if options.DEBUG: print (person['full_names'][0]+" "+ matches)
+            if len(matches)==1:
+                doc[matches[0][0]].addHighlightAnnot(matches[0][1])
+                highlights+=[matches[0]]
     
-        ##step 2. tight search
-        #    elif len(matches)>1:
-        #        matches_tight=FindPersonMatchesTight(doc,person)
-        #        if options.DEBUG: print person['full_names'][0], matches_tight
-        #        if len(matches_tight)==1:
-        #            doc[matches_tight[0][0]].addHighlightAnnot(matches_tight[0][1])
-        #            highlights+=[matches_tight[0]]
-        #        else: 
-        #            ambiguous+=[matches]
-        #
-        ##step 3. select the closest to others
+        #step 2. tight search
+            elif len(matches)>1:
+                matches_tight=FindPersonMatchesTight(doc,person)
+                if options.DEBUG: print (person['full_names'][0], matches_tight)
+                if len(matches_tight)==1:
+                    doc[matches_tight[0][0]].addHighlightAnnot(matches_tight[0][1])
+                    highlights+=[matches_tight[0]]
+                else: 
+                    ambiguous+=[matches]
+        
+        #step 3. select the closest to others, or this is not for the one person highlight
+        #           bound : rectangle of the page , rect: x0, y0, x1, y1
         #page_y=doc[0].bound().y1
         #for am in ambiguous:
         #    if options.DEBUG: print "ambiguous matches",am
@@ -383,15 +398,14 @@ if __name__ == "__main__":
         #doc.close();
         #        
     
-        #if len(highlights)!=npeople:
-        #    errorline='  [Error] inconsistent number of people and highlight. people:'+str(npeople)+' highlights:'+str(len(highlights))
-        #    print (errorline)
-        #    summary+=[errorline]
-        #
-        #if len(summary)>1: summaries+=summary
+        if len(highlights)!=npeople:
+            errorline='  [Error] inconsistent number of people and highlight. people:'+str(npeople)+' highlights:'+str(len(highlights))
+            print (errorline)
+            summary+=[errorline]
+        
+        if len(summary)>1: summaries+=summary
         
     outputfile.close()
     
-    #print ("\n############ Summary ###########")
-    #for l in summaries: print (l)
-    '''
+    print ("\n############ Summary ###########")
+    for l in summaries: print (l)
