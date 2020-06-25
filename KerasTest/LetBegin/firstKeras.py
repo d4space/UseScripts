@@ -1,4 +1,5 @@
 # using: CMSSW_10_2_15_patch2/external/slc7_amd64_gcc700/bin/root
+# doc from: https://keras.io/guides/functional_api/
 
 #import tensorflow as tf
 #from tensorflow import keras
