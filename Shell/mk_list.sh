@@ -1,0 +1,8 @@
+
+
+PROCINPUT=""
+for PROC in ${PROCLIST[@]};do
+    PROCINPUT="${PROCINPUT},${PROC}"
+done
+PROCINPUT=${PROCINPUT#,}
+
