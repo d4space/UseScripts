@@ -1,0 +1,2 @@
+name="AAA"
+rank="Aplus"
